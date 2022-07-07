@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title></title>
+</head>
+<body>
+
+<div class = "container mb-3 p-4 d-flex justify-content-center">
+
+    <div class = "row">
+        <h2 class="heading">Account Information</h2>
+    </div>
+</div>
+
+<div class = "d-flex ml-4 p-4 flex-column">
+    <div class = "p-2">
+         <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+    </div>
+</div>
+
+<div class="d-flex ml-4 p-4 flex-column">
+    <div class="p-2"><h5 class="weight">Personal Information</h5></div>
+    <div class="p-2"><p>Name: {{ user[0][1]}} {{ user[0][2]}}</p></div>
+    <div class="p-2"><p>Email: {{session.email}}</p></div>
+    <div class="p-2"><p>Age: {{user[0][4]}}</p></div>
+    <div class="p-2"><p>Gender: {{user[0][3]}}</p></div>
+    <div class="p-2"><p>Home Address: </p></div>
+    <div class="p-2">
+        <p>{{home_address[0][3]}} {{home_address[0][2]}}</p>
+        <p>{{zip_code_home[0][1]}}</p>
+        <p>{{zip_code_home[0][2]}}</p>
+        <p>{{zip_code_home[0][0]}}</p>
+    </div>
+    <div class="p-2"><p>Billing Address:</p></div>
+    <div class="p-2">
+        <p>{{bill_address[0][3]}} {{bill_address[0][2]}}</p>
+        <p>{{zip_code_bill[0][1]}}</p>
+        <p>{{zip_code_bill[0][2]}}</p>
+        <p>{{zip_code_bill[0][0]}}</p>
+    </div>
+    <div class="p-2"><p>Credit Card Number(Last 4 digits): {{credit_cards[0][0][15:]}}</p></div>
+    <div class="p-2"><p>Password: *********</p></div>
+    <div class="p-2"><form action="/change_password" method="POST">
+        <input type="password" placeholder="New Password" name="new_password" value="{{
+            request.form.new_password }}">
+        <input class="btn btn-primary" type="submit" value="change">
+    </form></div>
+
+
+</div>
+
+<style>
+    .heading{ color: #0011ff;
+              font-family: Verdana;
+
+    }
+
+
+</style>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
